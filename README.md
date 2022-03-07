@@ -10,61 +10,53 @@ The project can be built and run in the following ways
 
 ### 1. Install all dependencies
 
-`yarn`
+`npm install`
 
-### 2. Build
+### 2. Run Server
 
-`yarn build`
+`npm start`
 
-This command will build the typeScript code into JavaScript and save them in the `./build` folder.
+This command will run the project and start the server on http://localhost:3000
 
-### 3. Start the Server
+### 3. Build
 
-`yarn start`
+`npm run build`
 
-This command will start the server running on port `3000`.
+Creates the Javascript files in the `./dist` folder.
 
-## Testing and Linting
 
-Here, I will show you how to run the test and also how to check that our code respects all the eslint rules.
+## Testing
 
-### 1. Linting
+### 1. Testing
 
-`yarn lint`
+`npm run test`
 
-### 2. Testing
+## API Endpoints
 
-`yarn test`
+### `/api/images/search??filename=imageName`
 
-## Endpoint
+`localhost:3000/api/images/search?filename=fjord.jpg`
 
-### `/api/images/preview/?filename=<image_name>`
+### `/api/images/resize?filename?filename=imageName&width=widthInt&height=heightInt`
 
-Method: `get`
-URL Params: `height` and `width` - the height or width of the image in pixels
-Query Param: `filename` - the specific image you are requesting.
+`localhost:3000/api/images/resize?filename=fjord.jpgwidth=300&height=300`
 
-    For example: `localhost:3000/api/images/preview/?filename=fjord`
+### `/api/thumbnails/search?filename=imageName`
 
-### `/api/images/resize/?width=<width>&height=<height>&filename=<image_name>`
+`localhost:3000/api/thumbnails/search?filename=fjord_100_100.jpg`
 
-Method: `get`
-URL Params: `height` and `width` - the height or width of the image in pixels
-Query Param: `filename` - the specific image you are requesting.
+### `/api/thumbnails/remove?filename=imageName`
 
-    For example: `localhost:3000/api/images/resize/?width=300&height=300&filename=fjord`
+`localhost:3000/api/thumbnails/remove?filename=fjord_100_100.jpg`
 
-#### Available Image options
+### Image and Thumbnails Directories
+`src/static/images`
+`src/static/thumbnails`
 
-1. `encenadaport`
-2. `fjord`
-3. `icelandwaterfall`
-4. `palmtunnel`
-5. `santamonica`
 
 ### Functionality
 
-- User can query endpoint using various params and queries to retrieve an image with a specified height and width.
-- The default height and width is set to 200px.
-- All images requested will be saved to disk.
-- There is a cache layer. If a user requests an image size that has already been requested, there is no need for resizing and the previously resized image will be returned.
+- Search an Image by name
+- Resize image. If resized image is already available, then the thumbnail is returned instead of resizing again.
+- Delete a thumbnail.
+- Search a thumbnail by name
