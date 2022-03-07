@@ -53,6 +53,7 @@ Creates the Javascript files in the `./dist` folder.
 
 #### 5. Image and Thumbnails Directories
 `src/static/images`
+
 `src/static/thumbnails`
 
 
