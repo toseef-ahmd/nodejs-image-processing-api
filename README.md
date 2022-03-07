@@ -39,7 +39,7 @@ Creates the Javascript files in the `./dist` folder.
 
 ### `/api/images/resize?filename?filename=imageName&width=widthInt&height=heightInt`
 
-`localhost:3000/api/images/resize?filename=fjord.jpgwidth=300&height=300`
+`localhost:3000/api/images/resize?filename=fjord.jpg&width=300&height=300`
 
 ### `/api/thumbnails/search?filename=imageName`
 
