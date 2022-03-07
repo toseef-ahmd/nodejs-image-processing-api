@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project aims to give you a real-world scenario in which you would read and write to your disk via a Node.js express server rather than a database. The project you create serves two purposes: to prepare you for setting up scalable code and architecture for real-world projects and tie together some of the most popular middleware and utilities found in Node.js projects. This project barely touches the surface of what is possible but will prove your ability to use what you’ve learned in real-world scenarios.
+This project involves working with Typescript and Node.js, conduct Unit Testing and write APIs such a way that when user visits an api endpoint with valid parameters, the image is resized and saved in a directory. If the same image is processed for the second time, already processed thumbnail is returned instead of processing again.
 
 ## How to build and start the server
 
@@ -30,6 +30,8 @@ Creates the Javascript files in the `./dist` folder.
 ### 1. Testing
 
 `npm run test`
+### 2. Run built code
+`node dist/index`
 
 ## API Endpoints
 
