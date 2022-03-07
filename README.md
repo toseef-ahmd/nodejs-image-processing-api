@@ -33,23 +33,23 @@ Creates the Javascript files in the `./dist` folder.
 
 ## API Endpoints
 
-### `/api/images/search??filename=imageName`
+#### 1. `/api/images/search??filename=imageName`
 
 `localhost:3000/api/images/search?filename=fjord.jpg`
 
-### `/api/images/resize?filename?filename=imageName&width=widthInt&height=heightInt`
+#### 2. `/api/images/resize?filename?filename=imageName&width=widthInt&height=heightInt`
 
 `localhost:3000/api/images/resize?filename=fjord.jpg&width=300&height=300`
 
-### `/api/thumbnails/search?filename=imageName`
+#### 3. `/api/thumbnails/search?filename=imageName`
 
 `localhost:3000/api/thumbnails/search?filename=fjord_100_100.jpg`
 
-### `/api/thumbnails/remove?filename=imageName`
+#### 4. `/api/thumbnails/remove?filename=imageName`
 
 `localhost:3000/api/thumbnails/remove?filename=fjord_100_100.jpg`
 
-### Image and Thumbnails Directories
+#### 5. Image and Thumbnails Directories
 `src/static/images`
 `src/static/thumbnails`
 
@@ -59,4 +59,4 @@ Creates the Javascript files in the `./dist` folder.
 - Search an Image by name
 - Resize image. If resized image is already available, then the thumbnail is returned instead of resizing again.
 - Delete a thumbnail.
-- Search a thumbnail by name
+- Search a thumbnail by name.
