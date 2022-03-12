@@ -1,19 +1,35 @@
-import fs from 'fs'
-import { Response, Request, NextFunction } from 'express'
-import { query, validationResult, ValidationError, check } from 'express-validator'
-import { fileDirs, Files } from '../utils/path.util'
+import { query, ValidationChain } from "express-validator"
 
-
-
-const imageResizeMiddleware = (fileArr : string[]) => [
-  query('width').exists().withMessage('Image width cannot be empty').isInt().withMessage('Width should be an integer'),
-  query('height').exists().withMessage('Image height cannot be empty').isInt().withMessage('Height should be integer'),
-  query('filename').exists().withMessage('Image name cannot be empty').isIn(fileArr).withMessage('File not found')
+const imageResizeMiddleware = (fileArr: string[]) : ValidationChain[] => [
+  query("width")
+    .exists()
+    .withMessage("Image width cannot be empty")
+    .toInt()
+    .isInt({ min: 1 })
+    .withMessage("Width should be a valid integer with values greater than 0"),
+  query("height")
+    .exists()
+    .withMessage("Image height cannot be empty")
+    .toInt()
+    .isInt({ min: 1})
+    .withMessage("Height should be a valid integer with values greater than 0"),
+  query("filename")
+    .exists()
+    .withMessage("Image name is required")
+    .isLength({ min: 1 })
+    .withMessage("Image name cannot be empty")
+    .isIn(fileArr)
+    .withMessage("This file does not exist"),
 ]
 
-const searchFilesMiddleware = (fileArr: string[]) => [
-  query('filename').exists().withMessage('Image name cannot be empty').isIn(fileArr).withMessage('File not found')
+const searchFilesMiddleware = (fileArr: string[]) : ValidationChain[] => [
+  query("filename")
+    .exists()
+    .withMessage("Image name is required")
+    .isLength({ min: 1 })
+    .withMessage("Image name cannot be empty")
+    .isIn(fileArr)
+    .withMessage("This file does not exist"),
 ]
 
-
-export { imageResizeMiddleware, searchFilesMiddleware}
+export { imageResizeMiddleware, searchFilesMiddleware }

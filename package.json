@@ -9,7 +9,10 @@
     "jasmine": "jasmine",
     "build": "npm run copy:thumbnails && npm run copy:images && npx tsc",
     "copy:images": "copyfiles -f src/static/images/*.jpg dist/static/images/",
-    "copy:thumbnails": "copyfiles -f src/static/thumbnails/*.jpg dist/static/thumbnails/"
+    "copy:thumbnails": "copyfiles -f src/static/thumbnails/*.jpg dist/static/thumbnails/",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -30,8 +33,13 @@
     "@types/prettier": "^2.4.4",
     "@types/sharp": "^0.29.5",
     "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.9.0",
+    "jasmine": "^4.0.2",
+    "jasmine-spec-reporter": "^7.0.0",
     "prettier": "^2.5.1",
+    "supertest": "^6.2.2",
     "tslint": "^6.1.3",
     "typescript": "^4.5.5"
   },
@@ -39,11 +47,8 @@
     "copyfiles": "^2.4.1",
     "express": "^4.17.3",
     "express-validator": "^6.14.0",
-    "jasmine": "^4.0.2",
-    "jasmine-spec-reporter": "^7.0.0",
     "multer": "^1.4.4",
     "nodemon": "^2.0.15",
-    "sharp": "^0.30.2",
-    "supertest": "^6.2.2"
+    "sharp": "^0.30.2"
   }
 }
