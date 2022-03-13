@@ -8,14 +8,14 @@ const urlValidator = async (
 ) : Promise<void | Response> => {
   const errors = validationResult(req)
   if (!errors.isEmpty()) {
-    const log = ({ msg, param, value }: ValidationError) =>
+    const log = ({ msg, value }: ValidationError) =>
       `${value}:  ${msg}`
     const errors = validationResult(req).formatWith(log)
     
-    console.log("errors: ", errors)
+    
     return res.status(422).json({
       success: false,
-      errors: errors.array().map(err=> err),
+      errors: errors.array(),
     })
   }
 

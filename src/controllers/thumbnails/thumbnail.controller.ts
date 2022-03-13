@@ -12,7 +12,9 @@ const search = async (req: Request, res: Response): Promise<void> => {
 
   isAvailable
     ? res.sendFile(thumnailPath)
-    : res.send("The file you searched for doesn't exist")
+    : res.send({
+      error : "The file you searched for doesn't exist"
+    })
 }
 
 const remove = async (req: Request, res: Response): Promise<void> => {

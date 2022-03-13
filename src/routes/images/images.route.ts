@@ -11,7 +11,7 @@ const images = express.Router()
 
 images
   .route("/search")
-  .get(searchFilesMiddleware(updateFiles("images")), urlValidator, search)
+  .get(searchFilesMiddleware(), urlValidator, search)
 images
   .route("/resize")
   .get(imageResizeMiddleware(updateFiles("images")), urlValidator, resize)

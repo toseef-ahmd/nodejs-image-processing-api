@@ -11,9 +11,9 @@ const thumbnails = express.Router()
 
 thumbnails
   .route("/search")
-  .get(searchFilesMiddleware(updateFiles("thumbnails")), urlValidator, search)
+  .get(searchFilesMiddleware(), urlValidator, search)
 thumbnails
   .route("/remove")
-  .get(searchFilesMiddleware(updateFiles("thumbnails")), urlValidator, remove)
+  .get(searchFilesMiddleware(), urlValidator, remove)
 
 export default thumbnails

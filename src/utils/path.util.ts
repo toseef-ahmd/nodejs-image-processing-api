@@ -11,7 +11,6 @@ export const updateFiles = (fileType: string): string[] => {
   const fileArr: string[] = fs.readdirSync(
     fileType === "images" ? images : fileType === "thumbnails" ? thumbnails : ""
   )
-
   return fileArr
 }
 

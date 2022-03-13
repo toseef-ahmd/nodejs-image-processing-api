@@ -26,15 +26,15 @@ const resize = async (req: Request, res: Response): Promise<void> => {
   const thumbnailToPath: string = path.resolve(thumbnails, thumbnail) //Reads image file name from directory based on file type (Thumbnail)
 
   const ThumbnailExists: boolean = await fileExists(thumbnailToPath)
-
-  if (ThumbnailExists) {
-    res.setHeader("Content-Type", "text/html")
-    res.redirect(`/api/thumbnails/search?filename=${thumbnail}`)
-  } else {
-    await ResizeImage(imageFromPath, width, height, thumbnailToPath)
-    res.status(200)
+  if (!ThumbnailExists) {
+    await ResizeImage(imageFromPath, width, height, thumbnailToPath) //Helper function to create thumbnail for an image
     res.sendFile(thumbnailToPath)
   }
+  else {
+    res.redirect(`/api/thumbnails/search?filename=${thumbnail}`)
+  } 
+ 
+ 
 }
 
 export { search, resize }
