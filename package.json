@@ -7,9 +7,7 @@
     "start": "nodemon src/index.ts",
     "test": "npx tsc && npm run jasmine",
     "jasmine": "jasmine",
-    "build": "npm run copy:thumbnails && npm run copy:images && npx tsc",
-    "copy:images": "copyfiles -f src/static/images/*.jpg dist/static/images/",
-    "copy:thumbnails": "copyfiles -f src/static/thumbnails/*.jpg dist/static/thumbnails/",
+    "build": "npx tsc",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write src/**/*.ts"
   },

@@ -16,8 +16,8 @@ export const updateFiles = (fileType: string): string[] => {
 
 export const fileDirs = (): Files => {
   return {
-    images: path.resolve(__dirname, "../static/images"),
-    thumbnails: path.resolve(__dirname, "../static/thumbnails"),
+    images: path.resolve(__dirname, "../../static/images"),
+    thumbnails: path.resolve(__dirname, "../../static/thumbnails"),
   }
 }
 

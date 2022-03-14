@@ -27,12 +27,9 @@ const resize = async (req: Request, res: Response): Promise<void> => {
 
   const ThumbnailExists: boolean = await fileExists(thumbnailToPath)
   if (!ThumbnailExists) {
-    await ResizeImage(imageFromPath, width, height, thumbnailToPath) //Helper function to create thumbnail for an image
-    res.sendFile(thumbnailToPath)
+    await ResizeImage(imageFromPath, width, height, thumbnailToPath) //Helper function to create thumbnail for an image  
   }
-  else {
-    res.redirect(`/api/thumbnails/search?filename=${thumbnail}`)
-  } 
+  res.sendFile(thumbnailToPath)
  
  
 }

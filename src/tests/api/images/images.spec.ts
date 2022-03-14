@@ -21,7 +21,7 @@ describe("Test images related response", () => {
     const response = await req.get(
       "/api/images/resize?filename=fjord.jpg&width=300&height=300"
     )
-    expect(response.status).toBe(302)
+    expect(response.status).toBe(200)
   })
 
   it("Checks if Resize method works fine.", () => {
