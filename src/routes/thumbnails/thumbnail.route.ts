@@ -1,5 +1,4 @@
 import express from "express"
-import { updateFiles } from "../../utils/path.util"
 import {
   remove,
   search,
