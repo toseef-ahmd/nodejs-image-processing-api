@@ -16,7 +16,7 @@ The project can be built and run in the following ways
 
 `npm start`
 
-This command will run the project and start the server on http://localhost:8000
+This command will run the project and start the server on http://localhost:3000
 
 ### 3. Build
 
